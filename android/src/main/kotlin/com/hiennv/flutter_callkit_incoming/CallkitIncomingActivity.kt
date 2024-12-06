@@ -79,7 +79,6 @@ class CallkitIncomingActivity : Activity() {
     private lateinit var tvInfo3: TextView
 
 
-    private lateinit var ivLogo: ImageView
     private lateinit var ivAvatar: CircleImageView
 
     private lateinit var llAction: LinearLayout
@@ -202,7 +201,6 @@ class CallkitIncomingActivity : Activity() {
 		}
 
         val isShowLogo = data?.getBoolean(CallkitConstants.EXTRA_CALLKIT_IS_SHOW_LOGO, false)
-        ivLogo.visibility = if (isShowLogo == true) View.VISIBLE else View.INVISIBLE
 
         val avatarUrl = data?.getString(CallkitConstants.EXTRA_CALLKIT_AVATAR, "")
         if (avatarUrl != null && avatarUrl.isNotEmpty()) {
@@ -285,7 +283,6 @@ class CallkitIncomingActivity : Activity() {
 
 //        tvNameCaller = findViewById(R.id.tvNameCaller)
 //        tvNumber = findViewById(R.id.tvNumber)
-        ivLogo = findViewById(R.id.ivLogo)
         ivAvatar = findViewById(R.id.ivAvatar)
 
         llAction = findViewById(R.id.llAction)
