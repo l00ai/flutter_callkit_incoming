@@ -25,10 +25,22 @@ class CallKitParams {
     this.headers,
     this.android,
     this.ios,
+    this.info1,
+    this.info2,
+    this.info3,
+    this.title1,
+    this.title2,
+    this.title3
   });
 
   final String? id;
   final String? nameCaller;
+  final String? title1;
+  final String? title2;
+  final String? title3;
+  final String? info1;
+  final String? info2;
+  final String? info3;
   final String? appName;
   final String? avatar;
   final String? handle;

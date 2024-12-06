@@ -1,17 +1,12 @@
 package com.hiennv.flutter_callkit_incoming
 
 object CallkitConstants {
-    const val ACTION_CALL_INCOMING =
-            "com.hiennv.flutter_callkit_incoming.ACTION_CALL_INCOMING"
+    const val ACTION_CALL_INCOMING = "com.hiennv.flutter_callkit_incoming.ACTION_CALL_INCOMING"
     const val ACTION_CALL_START = "com.hiennv.flutter_callkit_incoming.ACTION_CALL_START"
-    const val ACTION_CALL_ACCEPT =
-            "com.hiennv.flutter_callkit_incoming.ACTION_CALL_ACCEPT"
-    const val ACTION_CALL_DECLINE =
-            "com.hiennv.flutter_callkit_incoming.ACTION_CALL_DECLINE"
-    const val ACTION_CALL_ENDED =
-            "com.hiennv.flutter_callkit_incoming.ACTION_CALL_ENDED"
-    const val ACTION_CALL_TOGGLE_MUTE =
-            "com.hiennv.flutter_callkit_incoming.ACTION_CALL_TOGGLE_MUTE"
+    const val ACTION_CALL_ACCEPT = "com.hiennv.flutter_callkit_incoming.ACTION_CALL_ACCEPT"
+    const val ACTION_CALL_DECLINE = "com.hiennv.flutter_callkit_incoming.ACTION_CALL_DECLINE"
+    const val ACTION_CALL_ENDED = "com.hiennv.flutter_callkit_incoming.ACTION_CALL_ENDED"
+    const val ACTION_CALL_TOGGLE_MUTE = "com.hiennv.flutter_callkit_incoming.ACTION_CALL_TOGGLE_MUTE"
     const val ACTION_CALL_TOGGLE_HOLD =
             "com.hiennv.flutter_callkit_incoming.ACTION_CALL_TOGGLE_HOLD"
     const val ACTION_CALL_TIMEOUT =
@@ -29,6 +24,14 @@ object CallkitConstants {
 
     const val EXTRA_CALLKIT_ID = "EXTRA_CALLKIT_ID"
     const val EXTRA_CALLKIT_NAME_CALLER = "EXTRA_CALLKIT_NAME_CALLER"
+
+    const val EXTRA_CALLKIT_TITLE1 = "EXTRA_CALLKIT_TITLE1"
+    const val EXTRA_CALLKIT_TITLE2 = "EXTRA_CALLKIT_TITLE2"
+    const val EXTRA_CALLKIT_TITLE3 = "EXTRA_CALLKIT_TITLE3"
+    const val EXTRA_CALLKIT_INFO1 = "EXTRA_CALLKIT_INFO1"
+    const val EXTRA_CALLKIT_INFO2 = "EXTRA_CALLKIT_INFO2"
+    const val EXTRA_CALLKIT_INFO3 = "EXTRA_CALLKIT_INFO3"
+
     const val EXTRA_CALLKIT_APP_NAME = "EXTRA_CALLKIT_APP_NAME"
     const val EXTRA_CALLKIT_HANDLE = "EXTRA_CALLKIT_HANDLE"
     const val EXTRA_CALLKIT_TYPE = "EXTRA_CALLKIT_TYPE"

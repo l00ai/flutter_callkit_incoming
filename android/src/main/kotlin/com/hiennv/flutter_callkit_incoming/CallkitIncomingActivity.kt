@@ -70,8 +70,15 @@ class CallkitIncomingActivity : Activity() {
     private lateinit var ivBackground: ImageView
     private lateinit var llBackgroundAnimation: RippleRelativeLayout
 
-    private lateinit var tvNameCaller: TextView
-    private lateinit var tvNumber: TextView
+    private lateinit var tvTitle1: TextView
+    private lateinit var tvTitle2: TextView
+    private lateinit var tvTitle3: TextView
+
+    private lateinit var tvInfo1: TextView
+    private lateinit var tvInfo2: TextView
+    private lateinit var tvInfo3: TextView
+
+
     private lateinit var ivLogo: ImageView
     private lateinit var ivAvatar: CircleImageView
 
@@ -174,14 +181,23 @@ class CallkitIncomingActivity : Activity() {
         }
 
 		val textColor = data?.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_COLOR, "#ffffff")
-        val isShowCallID = data?.getBoolean(CallkitConstants.EXTRA_CALLKIT_IS_SHOW_CALL_ID, false)
-        tvNameCaller.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_NAME_CALLER, "")
-        tvNumber.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_HANDLE, "")
-        tvNumber.visibility = if (isShowCallID == true) View.VISIBLE else View.INVISIBLE
+//        val isShowCallID = data?.getBoolean(CallkitConstants.EXTRA_CALLKIT_IS_SHOW_CALL_ID, false)
+
+        tvTitle1.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_TITLE1, "")
+        tvTitle2.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_TITLE2, "")
+        tvTitle3.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_TITLE3, "")
+
+        tvInfo1.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_INFO1, "")
+        tvInfo2.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_INFO2, "")
+        tvInfo3.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_INFO3, "")
+
+//        tvNameCaller.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_NAME_CALLER, "")
+//        tvNumber.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_HANDLE, "")
+//        tvNumber.visibility = if (isShowCallID == true) View.VISIBLE else View.INVISIBLE
 
 		try {
-			tvNameCaller.setTextColor(Color.parseColor(textColor))
-			tvNumber.setTextColor(Color.parseColor(textColor))
+            tvTitle1.setTextColor(Color.parseColor(textColor))
+            tvInfo1.setTextColor(Color.parseColor(textColor))
 		} catch (error: Exception) {
 		}
 
@@ -259,8 +275,16 @@ class CallkitIncomingActivity : Activity() {
                 Utils.getScreenWidth() + Utils.getStatusBarHeight(this@CallkitIncomingActivity)
         llBackgroundAnimation.startRippleAnimation()
 
-        tvNameCaller = findViewById(R.id.tvNameCaller)
-        tvNumber = findViewById(R.id.tvNumber)
+        tvTitle1 = findViewById(R.id.tvTitle1)
+        tvTitle2 = findViewById(R.id.tvTitle2)
+        tvTitle3 = findViewById(R.id.tvTitle3)
+
+        tvInfo1 = findViewById(R.id.tvInfo1)
+        tvInfo2 = findViewById(R.id.tvInfo2)
+        tvInfo3 = findViewById(R.id.tvInfo3)
+
+//        tvNameCaller = findViewById(R.id.tvNameCaller)
+//        tvNumber = findViewById(R.id.tvNumber)
         ivLogo = findViewById(R.id.ivLogo)
         ivAvatar = findViewById(R.id.ivAvatar)
 

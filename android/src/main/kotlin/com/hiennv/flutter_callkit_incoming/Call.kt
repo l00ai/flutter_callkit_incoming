@@ -90,9 +90,32 @@ data class Data(val args: Map<String, Any?>) {
     @JsonProperty("isBot")
     var isBot: Boolean = false
 
+    @JsonProperty("title1")
+    var title1: String? = null
+    @JsonProperty("title2")
+    var title2: String? = null
+    @JsonProperty("title3")
+    var title3: String? = null
+
+    @JsonProperty("info1")
+    var info1: String? = null
+    @JsonProperty("info2")
+    var info2: String? = null
+    @JsonProperty("info3")
+    var info3: String? = null
+
     init {
         var android: Map<String, Any?>? = args["android"] as? HashMap<String, Any?>?
         android = android ?: args
+
+        title1 = android["title1"] as? String ?: ""
+        title2 = android["title2"] as? String ?: ""
+        title3 = android["title3"] as? String ?: ""
+        info1 = android["info1"] as? String ?: ""
+        info2 = android["info2"] as? String ?: ""
+        info3 = android["info3"] as? String ?: ""
+
+
         isCustomNotification = android["isCustomNotification"] as? Boolean ?: false
         isCustomSmallExNotification = android["isCustomSmallExNotification"] as? Boolean ?: false
         isShowLogo = android["isShowLogo"] as? Boolean ?: false
@@ -102,8 +125,7 @@ data class Data(val args: Map<String, Any?>) {
         backgroundUrl = android["backgroundUrl"] as? String ?: ""
         actionColor = android["actionColor"] as? String ?: "#4CAF50"
         textColor = android["textColor"] as? String ?: "#ffffff"
-        incomingCallNotificationChannelName =
-            android["incomingCallNotificationChannelName"] as? String
+        incomingCallNotificationChannelName = android["incomingCallNotificationChannelName"] as? String
         missedCallNotificationChannelName = android["missedCallNotificationChannelName"] as? String
         isShowFullLockedScreen = android["isShowFullLockedScreen"] as? Boolean ?: true
         isImportant = android["isImportant"] as? Boolean ?: false
@@ -150,6 +172,14 @@ data class Data(val args: Map<String, Any?>) {
         bundle.putLong(CallkitConstants.EXTRA_CALLKIT_DURATION, duration)
         bundle.putString(CallkitConstants.EXTRA_CALLKIT_TEXT_ACCEPT, textAccept)
         bundle.putString(CallkitConstants.EXTRA_CALLKIT_TEXT_DECLINE, textDecline)
+
+        bundle.putString(CallkitConstants.EXTRA_CALLKIT_TITLE1, title1)
+        bundle.putString(CallkitConstants.EXTRA_CALLKIT_TITLE2, title2)
+        bundle.putString(CallkitConstants.EXTRA_CALLKIT_TITLE3, title3)
+
+        bundle.putString(CallkitConstants.EXTRA_CALLKIT_INFO1, info1)
+        bundle.putString(CallkitConstants.EXTRA_CALLKIT_INFO2, info2)
+        bundle.putString(CallkitConstants.EXTRA_CALLKIT_INFO3, info3)
 
         missedNotificationId?.let {
             bundle.putInt(
@@ -237,8 +267,16 @@ data class Data(val args: Map<String, Any?>) {
         fun fromBundle(bundle: Bundle): Data {
             val data = Data(emptyMap())
             data.id = bundle.getString(CallkitConstants.EXTRA_CALLKIT_ID, "")
-            data.nameCaller =
-                bundle.getString(CallkitConstants.EXTRA_CALLKIT_NAME_CALLER, "")
+            data.nameCaller = bundle.getString(CallkitConstants.EXTRA_CALLKIT_NAME_CALLER, "")
+
+            data.title1 = bundle.getString(CallkitConstants.EXTRA_CALLKIT_TITLE1, "")
+            data.title2 = bundle.getString(CallkitConstants.EXTRA_CALLKIT_TITLE2, "")
+            data.title3 = bundle.getString(CallkitConstants.EXTRA_CALLKIT_TITLE3, "")
+
+            data.info1 = bundle.getString(CallkitConstants.EXTRA_CALLKIT_INFO1, "")
+            data.info2 = bundle.getString(CallkitConstants.EXTRA_CALLKIT_INFO2, "")
+            data.info3 = bundle.getString(CallkitConstants.EXTRA_CALLKIT_INFO3, "")
+
             data.appName =
                 bundle.getString(CallkitConstants.EXTRA_CALLKIT_APP_NAME, "")
             data.handle =
