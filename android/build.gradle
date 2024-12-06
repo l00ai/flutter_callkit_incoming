@@ -33,6 +33,11 @@ android {
     if (project.android.hasProperty("namespace")) {
         namespace "com.hiennv.flutter_callkit_incoming"
     }
+
+
+    kotlin {
+        jvmToolchain(17)
+    }
     
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -54,4 +59,5 @@ dependencies {
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.11.1'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.1'
-    implementation "com.ncorti:slidetoact:0.11.0"}
+    implementation "com.ncorti:slidetoact:0.11.0"
+}
