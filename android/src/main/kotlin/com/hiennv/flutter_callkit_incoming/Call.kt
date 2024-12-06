@@ -91,31 +91,22 @@ data class Data(val args: Map<String, Any?>) {
     var isBot: Boolean = false
 
     @JsonProperty("title1")
-    var title1: String? = null
+    var title1: String = (args["title1"] as? String) ?: ""
     @JsonProperty("title2")
-    var title2: String? = null
+    var title2: String = (args["title2"] as? String) ?: ""
     @JsonProperty("title3")
-    var title3: String? = null
+    var title3: String = (args["title3"] as? String) ?: ""
 
     @JsonProperty("info1")
-    var info1: String? = null
+    var info1: String = (args["info1"] as? String) ?: ""
     @JsonProperty("info2")
-    var info2: String? = null
+    var info2: String = (args["info2"] as? String) ?: ""
     @JsonProperty("info3")
-    var info3: String? = null
+    var info3: String = (args["info3"] as? String) ?: ""
 
     init {
         var android: Map<String, Any?>? = args["android"] as? HashMap<String, Any?>?
         android = android ?: args
-
-        title1 = android["title1"] as? String ?: ""
-        title2 = android["title2"] as? String ?: ""
-        title3 = android["title3"] as? String ?: ""
-        info1 = android["info1"] as? String ?: ""
-        info2 = android["info2"] as? String ?: ""
-        info3 = android["info3"] as? String ?: ""
-
-
         isCustomNotification = android["isCustomNotification"] as? Boolean ?: false
         isCustomSmallExNotification = android["isCustomSmallExNotification"] as? Boolean ?: false
         isShowLogo = android["isShowLogo"] as? Boolean ?: false
