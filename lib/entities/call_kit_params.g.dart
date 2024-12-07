@@ -36,6 +36,7 @@ CallKitParams _$CallKitParamsFromJson(Map<String, dynamic> json) =>
       title1: json['title1'] as String?,
       title2: json['title2'] as String?,
       title3: json['title3'] as String?,
+      showDeclineBtn: json['showDeclineBtn'] as bool?,
     );
 
 Map<String, dynamic> _$CallKitParamsToJson(CallKitParams instance) =>
@@ -51,6 +52,7 @@ Map<String, dynamic> _$CallKitParamsToJson(CallKitParams instance) =>
       'appName': instance.appName,
       'avatar': instance.avatar,
       'handle': instance.handle,
+      'showDeclineBtn': instance.showDeclineBtn,
       'type': instance.type,
       'normalHandle': instance.normalHandle,
       'duration': instance.duration,

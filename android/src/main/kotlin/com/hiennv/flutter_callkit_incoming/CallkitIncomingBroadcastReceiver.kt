@@ -210,6 +210,7 @@ class CallkitIncomingBroadcastReceiver : BroadcastReceiver() {
                 "duration" to data.getLong(CallkitConstants.EXTRA_CALLKIT_DURATION, 0L),
                 "textAccept" to data.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_ACCEPT, ""),
                 "textDecline" to data.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_DECLINE, ""),
+                "showDeclineBtn" to data.getBoolean(CallkitConstants.EXTRA_CALLKIT_SHOW_DECLINE_ACTION, false),
                 "extra" to data.getSerializable(CallkitConstants.EXTRA_CALLKIT_EXTRA)!!,
                 "missedCallNotification" to notification,
                 "android" to android

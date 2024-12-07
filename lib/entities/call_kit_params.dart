@@ -30,7 +30,8 @@ class CallKitParams {
     this.info3,
     this.title1,
     this.title2,
-    this.title3
+    this.title3,
+    this.showDeclineBtn
   });
 
   final String? id;
@@ -44,6 +45,7 @@ class CallKitParams {
   final String? appName;
   final String? avatar;
   final String? handle;
+  final bool? showDeclineBtn;
   final int? type;
   final int? normalHandle;
   final int? duration;

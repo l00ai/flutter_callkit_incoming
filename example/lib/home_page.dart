@@ -146,6 +146,7 @@ class HomePageState extends State<HomePage> {
         info3: "المجموع : ١٦٥ شيكل",
         type: 0,
         duration: 30000,
+        showDeclineBtn: false,
         textAccept: 'Accept',
         textDecline: 'Decline',
         missedCallNotification: const NotificationParams(

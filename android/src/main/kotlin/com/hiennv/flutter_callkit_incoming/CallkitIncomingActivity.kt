@@ -15,9 +15,12 @@ import android.os.Looper
 import android.os.PowerManager
 import android.text.TextUtils
 import android.view.View
+import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout
 import com.ncorti.slidetoact.SlideToActView
@@ -79,6 +82,13 @@ class CallkitIncomingActivity : Activity() {
 
     private lateinit var swipe_btn: SlideToActView
 
+    private lateinit var llAction: LinearLayout
+    private lateinit var ivAcceptCall: ImageView
+    private lateinit var tvAccept: TextView
+
+    private lateinit var ivDeclineCall: ImageView
+    private lateinit var tvDecline: TextView
+
     @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,6 +108,7 @@ class CallkitIncomingActivity : Activity() {
         transparentStatusAndNavigation()
         setContentView(R.layout.activity_callkit_incoming)
         initView()
+
         incomingData(intent)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             registerReceiver(
@@ -210,7 +221,33 @@ class CallkitIncomingActivity : Activity() {
         finishTimeout(data, duration)
 
         val textAccept = data?.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_ACCEPT, "")
-        swipe_btn.text = if (TextUtils.isEmpty(textAccept)) getString(R.string.text_accept) else textAccept.toString()
+        tvAccept.text = if (TextUtils.isEmpty(textAccept)) getString(R.string.text_accept) else textAccept
+        val textDecline = data?.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_DECLINE, "")
+        tvDecline.text = if (TextUtils.isEmpty(textDecline)) getString(R.string.text_decline) else textDecline
+
+        try {
+            tvAccept.setTextColor(Color.parseColor(textColor))
+            tvDecline.setTextColor(Color.parseColor(textColor))
+        } catch (error: Exception) {
+        }
+
+        val showDeclineBtn = data?.getBoolean(CallkitConstants.EXTRA_CALLKIT_SHOW_DECLINE_ACTION, false)
+
+        if(showDeclineBtn == true){
+            swipe_btn.visibility = View.GONE
+
+            val callType = data?.getInt(CallkitConstants.EXTRA_CALLKIT_TYPE, 0) ?: 0
+            if (callType > 0) {
+                ivAcceptCall.setImageResource(R.drawable.ic_video)
+            }
+
+        }else{
+            llAction.visibility = View.GONE
+            val textAccept = data?.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_ACCEPT, "")
+            swipe_btn.text = if (TextUtils.isEmpty(textAccept)) getString(R.string.text_accept) else textAccept.toString()
+        }
+
+
 
 //        tvAccept.text = if (TextUtils.isEmpty(textAccept)) getString(R.string.text_accept) else textAccept
 //
@@ -273,7 +310,21 @@ class CallkitIncomingActivity : Activity() {
 //        tvNumber = findViewById(R.id.tvNumber)
         ivAvatar = findViewById(R.id.ivAvatar)
         swipe_btn = findViewById(R.id.swip_btn)
+        llAction = findViewById(R.id.llAction)
 
+
+        ivAcceptCall = findViewById(R.id.ivAcceptCall)
+        tvAccept = findViewById(R.id.tvAccept)
+        ivDeclineCall = findViewById(R.id.ivDeclineCall)
+        tvDecline = findViewById(R.id.tvDecline)
+        animateAcceptCall()
+
+        ivAcceptCall.setOnClickListener {
+            onAcceptClick()
+        }
+        ivDeclineCall.setOnClickListener {
+            onDeclineClick()
+        }
 
 
         swipe_btn.onSlideCompleteListener = (object : SlideToActView.OnSlideCompleteListener {
@@ -284,6 +335,13 @@ class CallkitIncomingActivity : Activity() {
         })
 
     }
+
+    private fun animateAcceptCall() {
+        val shakeAnimation =
+            AnimationUtils.loadAnimation(this@CallkitIncomingActivity, R.anim.shake_anim)
+        ivAcceptCall.animation = shakeAnimation
+    }
+
 
     private fun onAcceptClick() {
         val data = intent.extras?.getBundle(CallkitConstants.EXTRA_CALLKIT_INCOMING_DATA)

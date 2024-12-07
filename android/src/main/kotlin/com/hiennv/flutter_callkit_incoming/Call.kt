@@ -29,6 +29,8 @@ data class Data(val args: Map<String, Any?>) {
     var textAccept: String = (args["textAccept"] as? String) ?: ""
     @JsonProperty("textDecline")
     var textDecline: String = (args["textDecline"] as? String) ?: ""
+    @JsonProperty("showDeclineBtn")
+    var showDeclineBtn: Boolean = (args["showDeclineBtn"] as? Boolean) ?: false
     @JsonProperty("extra")
     var extra: HashMap<String, Any?> =
         (args["extra"] ?: HashMap<String, Any?>()) as HashMap<String, Any?>
@@ -163,6 +165,7 @@ data class Data(val args: Map<String, Any?>) {
         bundle.putLong(CallkitConstants.EXTRA_CALLKIT_DURATION, duration)
         bundle.putString(CallkitConstants.EXTRA_CALLKIT_TEXT_ACCEPT, textAccept)
         bundle.putString(CallkitConstants.EXTRA_CALLKIT_TEXT_DECLINE, textDecline)
+        bundle.putBoolean(CallkitConstants.EXTRA_CALLKIT_SHOW_DECLINE_ACTION, showDeclineBtn)
 
         bundle.putString(CallkitConstants.EXTRA_CALLKIT_TITLE1, title1)
         bundle.putString(CallkitConstants.EXTRA_CALLKIT_TITLE2, title2)
@@ -279,8 +282,8 @@ data class Data(val args: Map<String, Any?>) {
                 bundle.getLong(CallkitConstants.EXTRA_CALLKIT_DURATION, 30000L)
             data.textAccept =
                 bundle.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_ACCEPT, "")
-            data.textDecline =
-                bundle.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_DECLINE, "")
+            data.textDecline = bundle.getString(CallkitConstants.EXTRA_CALLKIT_TEXT_DECLINE, "")
+            data.showDeclineBtn = bundle.getBoolean(CallkitConstants.EXTRA_CALLKIT_SHOW_DECLINE_ACTION, false)
             data.isImportant =
                 bundle.getBoolean(CallkitConstants.EXTRA_CALLKIT_IS_IMPORTANT, false)
             data.isBot =
