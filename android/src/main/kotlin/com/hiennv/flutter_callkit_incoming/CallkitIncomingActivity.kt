@@ -314,6 +314,7 @@ class CallkitIncomingActivity : Activity() {
         tvTitle2 = findViewById(R.id.tvTitle2)
         tvTitle3 = findViewById(R.id.tvTitle3)
 
+
         tvInfo1 = findViewById(R.id.tvInfo1)
         tvInfo2 = findViewById(R.id.tvInfo2)
         topTitle = findViewById(R.id.topTitle)
