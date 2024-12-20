@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.ActivityInfo
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -15,7 +16,6 @@ import android.os.Looper
 import android.os.PowerManager
 import android.text.TextUtils
 import android.view.View
-import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
@@ -258,9 +258,21 @@ class CallkitIncomingActivity : Activity() {
 
         //swipe_btn?.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
 
-        val backgroundColor = data?.getString(CallkitConstants.EXTRA_CALLKIT_BACKGROUND_COLOR, "#0955fa")
+        val backgroundColor = data?.getString(CallkitConstants.EXTRA_CALLKIT_BACKGROUND_COLOR, null)
         try {
-            ivBackground.setBackgroundColor(Color.parseColor(backgroundColor))
+            if (backgroundColor == null){
+                val gd = GradientDrawable(
+                    GradientDrawable.Orientation.TL_BR,
+                    intArrayOf(0x6A020F4A.toInt(), 0xB8E7991B.toInt()) // Cast colors to Int
+                )
+
+                gd.cornerRadius = 0f
+                ivBackground.setBackgroundDrawable(gd)
+            }else{
+                ivBackground.setBackgroundColor(Color.parseColor(backgroundColor))
+            }
+
+
         } catch (error: Exception) {
         }
 //        var backgroundUrl = data?.getString(CallkitConstants.EXTRA_CALLKIT_BACKGROUND_URL, "")
@@ -294,8 +306,8 @@ class CallkitIncomingActivity : Activity() {
     private fun initView() {
         ivBackground = findViewById(R.id.ivBackground)
         llBackgroundAnimation = findViewById(R.id.llBackgroundAnimation)
-        llBackgroundAnimation.layoutParams.height =
-                Utils.getScreenWidth() + Utils.getStatusBarHeight(this@CallkitIncomingActivity)
+/*        llBackgroundAnimation.layoutParams.height =
+                Utils.getScreenWidth() + Utils.getStatusBarHeight(this@CallkitIncomingActivity)*/
         llBackgroundAnimation.startRippleAnimation()
 
         tvTitle1 = findViewById(R.id.tvTitle1)

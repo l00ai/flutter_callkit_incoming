@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
     android:orientation="vertical">
 
     <ImageView
@@ -14,115 +15,96 @@
         android:scaleType="centerCrop"
         tools:ignore="ContentDescription" />
 
+    <com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout
+        android:id="@+id/llBackgroundAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false">
 
-    <LinearLayout
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="@dimen/size_avatar"
+            android:layout_height="@dimen/size_avatar"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_default_avatar"
+            android:visibility="invisible"
+            app:civ_border_color="#80ffffff"
+            app:civ_border_width="1dp" />
+
+    </com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout>
+
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="false"
+        android:layout_marginTop="@dimen/base_margin_x2"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/base_margin_x5"
-            android:autoSizeMaxTextSize="@dimen/size_text_name"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeStepGranularity="2sp"
-            android:autoSizeTextType="uniform"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/size_text_name"
-            app:autoSizeMaxTextSize="@dimen/size_text_name"
-            app:autoSizeMinTextSize="12sp"
-            app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform"
-            android:text="لديك طلبية جديدة"
-            tools:ignore="MissingPrefix"
-            tools:targetApi="o" />
-
-        <TextView
-            android:id="@+id/tvTitle1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/base_margin_x3"
-            android:autoSizeMaxTextSize="@dimen/size_text_name"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeStepGranularity="2sp"
-            android:autoSizeTextType="uniform"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/size_text_name"
-            app:autoSizeMaxTextSize="@dimen/size_text_name"
-            app:autoSizeMinTextSize="12sp"
-            app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform"
-            tools:ignore="MissingPrefix"
-            tools:targetApi="o"
-            tools:text="Order From" />
-
-
-        <TextView
-            android:id="@+id/tvTitle2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textColor="@color/action_text"
-            android:textSize="@dimen/size_text_action"
-            tools:text="To" />
-
-        <TextView
-            android:id="@+id/tvTitle3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:autoSizeMaxTextSize="@dimen/size_text_name"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeStepGranularity="2sp"
-            android:autoSizeTextType="uniform"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/size_text_name"
-            app:autoSizeMaxTextSize="@dimen/size_text_name"
-            app:autoSizeMinTextSize="12sp"
-            app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform"
-            tools:ignore="MissingPrefix"
-            tools:targetApi="o"
-            tools:text="Order To" />
-
-
-        <com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout
-            android:id="@+id/llBackgroundAnimation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fitsSystemWindows="false">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/ivAvatar"
-                android:layout_width="@dimen/size_avatar"
-                android:layout_height="@dimen/size_avatar"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="@dimen/base_margin_x1_5"
-                android:src="@drawable/ic_default_avatar"
-                android:visibility="invisible"
-                app:civ_border_color="#80ffffff"
-                app:civ_border_width="1dp" />
-
-        </com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout>
-
-
         <LinearLayout
+            android:id="@+id/TopTitles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/base_margin_x2"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/size_text_title"
+                android:text="لديك طلبية جديدة"
+                tools:ignore="MissingPrefix"
+                tools:targetApi="o" />
+
+            <TextView
+                android:id="@+id/tvTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/base_margin_x2"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/size_text_content"
+                tools:ignore="MissingPrefix"
+                tools:targetApi="o"
+                tools:text="Order From" />
+
+            <TextView
+                android:id="@+id/tvTitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/action_text"
+                android:textSize="@dimen/size_text_action"
+                tools:text="To" />
+
+            <TextView
+                android:id="@+id/tvTitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/size_text_content"
+                tools:ignore="MissingPrefix"
+                tools:targetApi="o"
+                tools:text="Order To" />
+
+        </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/bottom_content"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -134,7 +116,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/action_text"
-                android:textSize="@dimen/size_text_name"
+                android:textSize="@dimen/size_text_content"
                 tools:text="Some info" />
 
             <TextView
@@ -145,7 +127,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/action_text"
-                android:textSize="@dimen/size_text_name"
+                android:textSize="@dimen/size_text_content"
                 tools:text="Some info" />
 
             <TextView
@@ -156,126 +138,133 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/action_text"
-                android:textSize="@dimen/size_text_name"
+                android:textSize="@dimen/size_text_content"
                 tools:text="Some info" />
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
 
     <LinearLayout
-        android:id="@+id/llAction"
+        android:id="@+id/bottom_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/base_margin_x6"
-        android:fitsSystemWindows="true"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/base_margin_x5"
+        android:fitsSystemWindows="false"
+        >
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/llAction"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:ignore="UseCompoundDrawables">
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:fitsSystemWindows="true"
+            android:orientation="horizontal">
 
-            <com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout
-                android:layout_width="@dimen/size_button_x2_5"
-                android:layout_height="@dimen/size_button_x2_5"
-                app:ripple_amount="4"
-                app:ripple_radius="@dimen/base_margin_x1_5"
-                app:ripple_scale="4.5">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
-                <ImageView
-                    android:id="@+id/ivDeclineCall"
-                    android:layout_width="@dimen/size_button"
-                    android:layout_height="@dimen/size_button"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/bg_button_decline"
-                    android:padding="@dimen/base_margin_x1_5"
-                    android:src="@drawable/ic_decline"
-                    tools:ignore="ContentDescription" />
+                <com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout
+                    android:layout_width="@dimen/size_button_x2_5"
+                    android:layout_height="@dimen/size_button_x2_5"
+                    app:ripple_amount="4"
+                    app:ripple_radius="@dimen/base_margin_x1_5"
+                    app:ripple_scale="4.5">
 
-                <TextView
-                    android:id="@+id/tvDecline"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/ivDeclineCall"
-                    android:layout_marginBottom="@dimen/base_margin"
-                    android:gravity="center"
-                    android:text="@string/text_decline"
-                    android:textColor="@color/action_text"
-                    android:textSize="@dimen/size_text_action" />
+                    <ImageView
+                        android:id="@+id/ivDeclineCall"
+                        android:layout_width="@dimen/size_button"
+                        android:layout_height="@dimen/size_button"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_button_decline"
+                        android:padding="@dimen/base_margin_x1_5"
+                        android:src="@drawable/ic_decline"
+                        tools:ignore="ContentDescription" />
 
-            </com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout>
+                    <TextView
+                        android:id="@+id/tvDecline"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/ivDeclineCall"
+                        android:layout_marginBottom="@dimen/base_margin"
+                        android:gravity="center"
+                        android:text="@string/text_decline"
+                        android:textColor="@color/action_text"
+                        android:textSize="@dimen/size_text_action" />
+
+                </com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+
+                <com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout
+                    android:layout_width="@dimen/size_button_x2_5"
+                    android:layout_height="@dimen/size_button_x2_5"
+                    app:ripple_amount="4"
+                    app:ripple_radius="@dimen/base_margin_x1_5"
+                    app:ripple_scale="4.5">
+
+
+                    <ImageView
+                        android:id="@+id/ivAcceptCall"
+                        android:layout_width="@dimen/size_button"
+                        android:layout_height="@dimen/size_button"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_button_accept"
+                        android:padding="@dimen/base_margin_x1_5"
+                        android:src="@drawable/ic_accept"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/tvAccept"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/ivAcceptCall"
+                        android:layout_marginBottom="@dimen/base_margin"
+                        android:gravity="center"
+                        android:text="@string/text_accept"
+                        android:textColor="@color/action_text"
+                        android:textSize="@dimen/size_text_action" />
+
+
+                </com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:orientation="vertical"
-            tools:ignore="UseCompoundDrawables">
-
-
-            <com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout
-                android:layout_width="@dimen/size_button_x2_5"
-                android:layout_height="@dimen/size_button_x2_5"
-                app:ripple_amount="4"
-                app:ripple_radius="@dimen/base_margin_x1_5"
-                app:ripple_scale="4.5">
-
-
-                <ImageView
-                    android:id="@+id/ivAcceptCall"
-                    android:layout_width="@dimen/size_button"
-                    android:layout_height="@dimen/size_button"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/bg_button_accept"
-                    android:padding="@dimen/base_margin_x1_5"
-                    android:src="@drawable/ic_accept"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/tvAccept"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/ivAcceptCall"
-                    android:layout_marginBottom="@dimen/base_margin"
-                    android:gravity="center"
-                    android:text="@string/text_accept"
-                    android:textColor="@color/action_text"
-                    android:textSize="@dimen/size_text_action" />
-
-
-            </com.hiennv.flutter_callkit_incoming.widgets.RippleRelativeLayout>
-
-        </LinearLayout>
-    </LinearLayout>
-
 
         <com.ncorti.slidetoact.SlideToActView
             android:id="@+id/swip_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/base_margin_x1_5"
+            android:layout_margin="@dimen/base_margin_x1_5"
             app:outer_color="@color/accept"
             app:inner_color="@color/action_text"
-            app:text="Example" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            app:text="Example"
+            />
 
     </LinearLayout>
+
+
+
+
+    </RelativeLayout>
 
 </RelativeLayout>
