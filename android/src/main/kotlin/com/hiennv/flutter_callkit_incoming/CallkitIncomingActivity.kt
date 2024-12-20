@@ -75,7 +75,7 @@ class CallkitIncomingActivity : Activity() {
 
     private lateinit var tvInfo1: TextView
     private lateinit var tvInfo2: TextView
-    private lateinit var tvInfo3: TextView
+    private lateinit var topTitle: TextView
 
 
     private lateinit var ivAvatar: CircleImageView
@@ -190,7 +190,7 @@ class CallkitIncomingActivity : Activity() {
 
         tvInfo1.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_INFO1, "")
         tvInfo2.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_INFO2, "")
-        tvInfo3.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_INFO3, "")
+        topTitle.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_INFO3, "")
 
 //        tvNameCaller.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_NAME_CALLER, "")
 //        tvNumber.text = data?.getString(CallkitConstants.EXTRA_CALLKIT_HANDLE, "")
@@ -316,7 +316,7 @@ class CallkitIncomingActivity : Activity() {
 
         tvInfo1 = findViewById(R.id.tvInfo1)
         tvInfo2 = findViewById(R.id.tvInfo2)
-        tvInfo3 = findViewById(R.id.tvInfo3)
+        topTitle = findViewById(R.id.topTitle)
 
 //        tvNameCaller = findViewById(R.id.tvNameCaller)
 //        tvNumber = findViewById(R.id.tvNumber)
