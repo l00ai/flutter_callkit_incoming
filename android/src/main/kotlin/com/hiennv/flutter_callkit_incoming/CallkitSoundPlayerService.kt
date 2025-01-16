@@ -74,18 +74,19 @@ class CallkitSoundPlayerService : Service() {
     }
 
     private fun playSound(intent: Intent?) {
-        this.data = intent?.extras
-        val sound = this.data?.getString(
-            CallkitConstants.EXTRA_CALLKIT_RINGTONE_PATH,
-            ""
-        )
-        var uri = sound?.let { getRingtoneUri(it) }
-        if (uri == null) {
-            uri = RingtoneManager.getActualDefaultRingtoneUri(
-                this@CallkitSoundPlayerService,
-                RingtoneManager.TYPE_RINGTONE
-            )
-        }
+//        this.data = intent?.extras
+//        val sound = this.data?.getString(
+//            CallkitConstants.EXTRA_CALLKIT_RINGTONE_PATH,
+//            ""
+//        )
+//        var uri = sound?.let { getRingtoneUri(it) }
+//        if (uri == null) {
+//            uri = RingtoneManager.getActualDefaultRingtoneUri(
+//                this@CallkitSoundPlayerService,
+//                RingtoneManager.TYPE_RINGTONE
+//            )
+//        }
+        var uri = getRingtoneUri("ringtone_default")
         try {
             mediaPlayer(uri!!)
         } catch (e: Exception) {
