@@ -25,7 +25,7 @@ class CallkitSoundPlayerService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         this.prepare()
-        this.playSound(intent)
+        this.playSound()
         this.playVibrator()
         return START_STICKY;
     }
@@ -73,7 +73,7 @@ class CallkitSoundPlayerService : Service() {
         }
     }
 
-    private fun playSound(intent: Intent?) {
+    private fun playSound() {
 //        this.data = intent?.extras
 //        val sound = this.data?.getString(
 //            CallkitConstants.EXTRA_CALLKIT_RINGTONE_PATH,

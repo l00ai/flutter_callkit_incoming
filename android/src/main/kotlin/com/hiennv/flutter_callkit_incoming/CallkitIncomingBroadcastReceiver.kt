@@ -87,12 +87,12 @@ class CallkitIncomingBroadcastReceiver : BroadcastReceiver() {
                     callkitNotificationManager.showIncomingNotification(data)
                     sendEventFlutter(CallkitConstants.ACTION_CALL_INCOMING, data)
                     addCall(context, Data.fromBundle(data))
-                    if (callkitNotificationManager.incomingChannelEnabled()) {
+                    //if (callkitNotificationManager.incomingChannelEnabled()) {
                         val soundPlayerServiceIntent =
                                 Intent(context, CallkitSoundPlayerService::class.java)
                         soundPlayerServiceIntent.putExtras(data)
                         context.startService(soundPlayerServiceIntent)
-                    }
+                    //}
                 } catch (error: Exception) {
                     Log.e(TAG, null, error)
                 }
