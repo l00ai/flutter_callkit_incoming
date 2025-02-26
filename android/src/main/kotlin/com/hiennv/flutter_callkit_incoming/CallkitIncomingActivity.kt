@@ -198,7 +198,11 @@ class CallkitIncomingActivity : Activity() {
 
 		try {
             tvTitle1.setTextColor(Color.parseColor(textColor))
+            tvTitle2.setTextColor(Color.parseColor(textColor))
+            tvTitle3.setTextColor(Color.parseColor(textColor))
             tvInfo1.setTextColor(Color.parseColor(textColor))
+            tvInfo2.setTextColor(Color.parseColor(textColor))
+            topTitle.setTextColor(Color.parseColor(textColor))
 		} catch (error: Exception) {
 		}
 
